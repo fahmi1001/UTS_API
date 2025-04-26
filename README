@@ -17,21 +17,115 @@ detail_Penjualan
 //Collection API
 https://doc.echoapi.com/docs/detail/450b8f8b6c02000?target_id=105941cc35d058&locale=en
 
-Berhubung cuma terbawa 1 untuk testing API nya
+Berhubung cuma terbawa 1 setiap folder nya untuk testing API nya
 saya lampirkan disini
 
-Semua Pelanggan
-http://localhost:4000/graphql
-{
-  "query": "query { semuaPelanggan { id nama email telepon } }"
-}
 
-Pelanggan by id
-http://localhost:4000/graphql
-{
-  "query": "query { pelanggan(id: 11) { id nama email telepon } }"
-}
+	
+	Semua Pelanggan
+	http://localhost:4000/graphql
+	{
+		"query": "query { semuaPelanggan { id nama email telepon } }"
+	}
+	Pelanggan by id
+	http://localhost:4000/graphql
+	{
+	"query": "query { pelanggan(id: 11) { id nama email telepon } }"
+	}
+	Pelanggan update
+	http://localhost:4000/graphql
+	{
+	"query": "mutation { ubahPelanggan(id: 11, nama: \"raos\", email: \"raos@mail.com\", telepon: \"08987654321\") }"
+	}
+	Pelanggan hapus
+	http://localhost:4000/graphql
+	{
+	"query": "mutation { hapusPelanggan(id: 11) }"
+	}
 
+	Semua barang
+	http://localhost:4000/graphql
+	{
+	"query": "query { semuaBarang { id nama harga stok kategori_id } }"
+	}
+	barang by id
+	http://localhost:4000/graphql
+	{
+	"query": "query { barang(id: 10) { id nama harga stok kategori_id } }"
+	}
+	barang update
+	http://localhost:4000/graphql
+	{
+	"query": "mutation { ubahBarang(id: 10, nama: \"Krayon\", harga: 10000, stok: 20, kategori_id: 7) { id nama harga stok kategori_id } }"
+	}
+	barang hapus
+	{
+	"query": "mutation { hapusBarang(id: 10) }"
+	}
+	
+	
+	Semua kategori
+	http://localhost:4000/graphql
+	{
+	"query": "query { semuaKategori { id nama } }"
+	}
+	kategori by id
+	http://localhost:4000/graphql
+	{
+	"query": "query { kategori(id: 13) { id nama } }"
+	}
+	kategori update
+	http://localhost:4000/graphql
+	{
+	"query": "mutation { ubahKategori(id: 13, nama: \"Makanan Dewasa\") { id nama } }"
+	}
+	hapus kategori
+	http://localhost:4000/graphql
+	{
+	"query": "mutation { hapusKategori(id: 13) }"
+	}
+
+	Semua Penjualan
+	http://localhost:4000/graphql
+	{
+	"query": "query { semuaPenjualan { id tanggal pelanggan_id total } }"
+	}
+	penjualan by id
+	http://localhost:4000/graphql
+	{
+	"query": "query { penjualan(id: 6) { id tanggal pelanggan_id total } }"
+	}
+	update penjualan
+	http://localhost:4000/graphql
+	{
+	"query": "mutation { ubahPenjualan(id: 6, tanggal: \"2025-04-27\", pelanggan_id: 8, total: 300000) { id tanggal pelanggan_id total } }"
+	}
+	hapus penjualan
+	http://localhost:4000/graphql
+	{
+	"query": "mutation { hapusPenjualan(id: 6) }"
+	}
+
+	Semua Detail Penjualan
+	http://localhost:4000/graphql
+	{
+	"query": "query { semuaDetailPenjualan { id penjualan_id barang_id jumlah harga_satuan } }"
+	}
+	detail penjualan by id
+	http://localhost:4000/graphql
+	{
+	"query": "query { detailPenjualan(id: 6) { id penjualan_id barang_id jumlah harga_satuan } }"
+	}
+	update penjualan
+	http://localhost:4000/graphql
+	{
+	"query": "mutation { ubahDetailPenjualan(id: 6, penjualan_id: 5, barang_id: 2, jumlah: 10, harga_satuan: 50000) { id penjualan_id barang_id jumlah harga_satuan } }"
+	}
+	hapus penjualan
+	http://localhost:4000/graphql
+	{
+	"query": "mutation { hapusDetailPenjualan(id: 6) }"
+	}
 
 
 //Import Database
@@ -93,5 +187,3 @@ Jalankan server lokal (node server.js).
 Buka Echo API / GraphQL Playground di browser http://localhost:4000/
 
 Coba query dan mutation sesuai kebutuhan.
-
-Hola
