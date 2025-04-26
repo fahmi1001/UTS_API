@@ -19,8 +19,6 @@ https://doc.echoapi.com/docs/detail/450b8f8b6c02000?target_id=105941cc35d058&loc
 
 Berhubung cuma terbawa 1 setiap folder nya untuk testing API nya
 saya lampirkan disini
-
-
 	
 	Semua Pelanggan
 	http://localhost:4000/graphql
