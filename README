@@ -1,0 +1,96 @@
+//Teknologi yang Digunakan
+Node.js + Apollo Server
+MySQL Database 
+GraphQL Playground / Postman untuk testing API
+
+//Install dependencies
+npm init -y
+npm install express apollo-server-express graphql mysql2
+
+//Struktur Database
+pelanggan
+barang
+kategori
+penjualan
+detail_Penjualan
+
+//Collection API
+https://doc.echoapi.com/docs/detail/450b8f8b6c02000?target_id=105941cc35d058&locale=en
+
+Berhubung cuma terbawa 1 untuk testing API nya
+saya lampirkan disini
+
+Semua Pelanggan
+http://localhost:4000/graphql
+{
+  "query": "query { semuaPelanggan { id nama email telepon } }"
+}
+
+Pelanggan by id
+http://localhost:4000/graphql
+{
+  "query": "query { pelanggan(id: 11) { id nama email telepon } }"
+}
+
+
+
+//Import Database
+Jalankan file SQL berikut:
+data/pelanggan.sql
+data/barang.sql
+data/kategori.sql
+data/penjualan.sql
+data/detailpenjualan.sql
+
+//Cara import:
+Masuk ke MySQL CLI:
+
+mysql -u root -p
+Setelah masuk ke MySQL prompt:
+
+SOURCE path/ke/file.sql;
+
+//Endpoint API (GraphQL Schema)
+Semua operasi dilakukan di satu endpoint:
+
+http://localhost:4000/
+Menggunakan query dan mutation GraphQL.
+
+//Kategori
+Query semua kategori:
+
+query { semuaKategori { id nama } }
+Mutation tambah kategori:
+
+mutation { tambahKategori(nama: "Elektronik") { id nama } }
+
+//Barang
+Query semua barang:
+
+query { semuaBarang { id nama harga stok kategori_id } }
+
+//Pelanggan
+Query semua pelanggan:
+
+query { semuaPelanggan { id nama email telepon } }
+Mutation tambah pelanggan:
+
+mutation { tambahPelanggan(nama: "Fahmi", email: "fahmi@mail.com", telepon: "08987654324") { id nama email telepon } }
+
+//Penjualan
+Mutation tambah penjualan:
+
+mutation { tambahPenjualan(pelanggan_id: 1, tanggal: "2025-04-26", total: 100000) { id tanggal pelanggan_id total } }
+
+//Detail Penjualan
+Mutation tambah detail penjualan:
+
+mutation { tambahDetailPenjualan(penjualan_id: 1, barang_id: 1, jumlah: 2, harga_satuan: 50000) { id penjualan_id barang_id jumlah harga_satuan } }
+
+//Testing API
+Jalankan server lokal (node server.js).
+
+Buka Echo API / GraphQL Playground di browser http://localhost:4000/
+
+Coba query dan mutation sesuai kebutuhan.
+
