@@ -59,6 +59,7 @@ saya lampirkan disini
 	"query": "mutation { ubahBarang(id: 10, nama: \"Krayon\", harga: 10000, stok: 20, kategori_id: 7) { id nama harga stok kategori_id } }"
 	}
 	barang hapus
+	http://localhost:4000/graphql
 	{
 	"query": "mutation { hapusBarang(id: 10) }"
 	}
